@@ -1,0 +1,18 @@
+helm:
+  chart: ./chart
+  values:
+    ingress:
+      enabled: true
+      className: "public"
+      annotations: 
+        kubernetes.io/ingress.class: public
+        # kubernetes.io/tls-acme: "true"
+      hosts:
+        - host: hellworld.healthlink.doosoft.tech
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls: 
+       - secretName: helloworld-tls
+         hosts:
+           - hellworld.healthlink.doosoft.tech
