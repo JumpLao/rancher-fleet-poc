@@ -5,7 +5,7 @@ helm:
     ingress:
       enabled: true
       className: "public"
-      annotations: 
+      annotations: {}
         # kubernetes.io/ingress.class: public
         # kubernetes.io/tls-acme: "true"
       hosts:
