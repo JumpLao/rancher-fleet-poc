@@ -5,9 +5,11 @@ helm:
     ingress:
       enabled: true
       className: "public"
-      annotations: {}
+      annotations:
         # kubernetes.io/ingress.class: public
         # kubernetes.io/tls-acme: "true"
+        cert-manager.io/issuer: rancher
+        cert-manager.io/issuer-kind: Issuer
       hosts:
         - host: hellworld.healthlink.doosoft.tech
           paths:
