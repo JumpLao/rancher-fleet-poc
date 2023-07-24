@@ -21,6 +21,10 @@ metadata:
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
+    {{- if .Values.ingress.tls }}
+    cert-manager.io/issuer: rancher
+    cert-manager.io/issuer-kind: Issuer
+    {{- end }}
   {{- end }}
 spec:
   {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
